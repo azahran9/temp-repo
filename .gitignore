@@ -1,0 +1,45 @@
+# Global ignores for all components
+.DS_Store
+node_modules/
+.env
+.env.*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+dist/
+build/
+.cache/
+*.tgz
+*.zip
+*.gz
+*.swp
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.iml
+*.pyc
+__pycache__/
+
+# Ignore test and coverage outputs
+*.lcov
+*.lcov.info
+
+# Ignore OS and editor files
+Thumbs.db
+*.bak
+*.tmp
+
+# Ignore local Terraform state and crash logs
+*.tfstate
+*.tfstate.*
+.terraform/
+crash.log
+.terraform.lock.hcl
+
+# Ignore AWS credentials and sensitive files
+.aws/
+*.pem
+*.key

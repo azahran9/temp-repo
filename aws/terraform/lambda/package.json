@@ -1,0 +1,13 @@
+{
+  "name": "job-matching-lambda",
+  "version": "1.0.0",
+  "description": "Lambda function for job matching",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.3.1"
+  }
+}

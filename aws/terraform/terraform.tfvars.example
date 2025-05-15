@@ -1,0 +1,39 @@
+# AWS Configuration
+aws_region = "us-east-1"
+project_name = "job-matching"
+environment = "production"
+
+# Network Configuration
+vpc_cidr = "10.0.0.0/16"
+availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+private_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+public_subnet_cidrs = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+ssh_allowed_ips = ["YOUR_IP_ADDRESS/32"] # Replace with your IP for security
+
+# Application Configuration
+app_port = 3000
+ami_id = "ami-0c55b159cbfafe1f0" # Amazon Linux 2 AMI (HVM), SSD Volume Type
+instance_type = "t3.small" # Consider t3.medium for production
+key_name = "job-matching-key" # Make sure to create this key pair in AWS first
+
+# Auto Scaling Configuration
+asg_min_size = 2
+asg_max_size = 10
+asg_desired_capacity = 2
+
+# Redis Configuration
+redis_node_type = "cache.t3.small" # Consider cache.m5.large for production
+
+# Database Configuration
+mongodb_uri = "mongodb+srv://username:password@cluster.mongodb.net/job-matching" # Replace with your MongoDB URI
+
+# Domain Configuration
+certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/abcd1234-ef56-gh78-ij90-klmnopqrstuv" # Replace with your certificate ARN
+domain_names = ["api.yourdomain.com", "www.api.yourdomain.com"] # Replace with your domain names
+route53_zone_id = "Z1234567890ABCDEFGHIJ" # Replace with your Route53 hosted zone ID
+
+# CI/CD Configuration
+github_repository = "your-github-username/job-matching" # Replace with your GitHub repository
+github_branch = "main" # Replace with your branch name
+codestar_connection_arn = "arn:aws:codestar-connections:us-east-1:123456789012:connection/abcdef01-2345-6789-abcd-ef0123456789" # Replace with your CodeStar connection ARN
+notification_email = "your-email@example.com" # Replace with your email address

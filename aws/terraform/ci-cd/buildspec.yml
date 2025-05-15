@@ -1,0 +1,50 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing dependencies...
+      - npm install -g npm@latest
+      - npm install -g jest
+  pre_build:
+    commands:
+      - echo Running tests...
+      - cd backend
+      - npm install
+      - npm test
+  build:
+    commands:
+      - echo Building the application...
+      - npm run build
+      - cd ../frontend
+      - npm install
+      - npm run build
+  post_build:
+    commands:
+      - echo Packaging Lambda function...
+      - cd ../aws/terraform/lambda
+      - npm install --production
+      - zip -r ../job-matching.zip *
+      - cd ../../..
+      - echo Preparing deployment artifacts...
+      - mkdir -p artifacts/backend
+      - mkdir -p artifacts/frontend
+      - cp -r backend/. artifacts/backend/
+      - cp -r frontend/build/. artifacts/frontend/
+      - cd artifacts
+      - zip -r application.zip .
+
+artifacts:
+  files:
+    - application.zip
+    - aws/terraform/job-matching.zip
+    - appspec.yml
+    - scripts/**/*
+  discard-paths: no
+
+cache:
+  paths:
+    - 'backend/node_modules/**/*'
+    - 'frontend/node_modules/**/*'

@@ -1,0 +1,26 @@
+# React frontend ignores
+node_modules/
+build/
+dist/
+.env
+.env.*
+coverage/
+.cache/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tgz
+*.zip
+*.swp
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.iml
+
+# Ignore editor/OS files
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
