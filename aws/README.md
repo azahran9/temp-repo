@@ -4,8 +4,6 @@ This directory contains the Terraform code to deploy the Job Matching API to AWS
 
 ## Architecture Overview
 
-![AWS Architecture Diagram](https://via.placeholder.com/800x600.png?text=Job+Matching+API+AWS+Architecture)
-
 The infrastructure is designed to be scalable, secure, and highly available:
 
 - **VPC**: Isolated network with public and private subnets across multiple availability zones
